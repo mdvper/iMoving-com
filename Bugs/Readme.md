@@ -1,1 +1,1 @@
-# Here you can find all bugs that i found.
+# Here you can see find all bugs that i found.
