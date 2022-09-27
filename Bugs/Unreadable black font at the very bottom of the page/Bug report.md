@@ -12,5 +12,7 @@ __Steps to reproduce:__
      - 0123456789
      - !@#$%^&*()_+
  
- __Expected result:__ Inherited font for writing on a dark background must be white.
- __Actual result:__ Inherited font is white
+
+__Expected result:__ Inherited font for writing on a dark background must be white.
+
+__Actual result:__ Inherited font is white
