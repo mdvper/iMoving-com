@@ -18,3 +18,4 @@ __Steps to reproduce:__
 __Expected result:__ All moving companies must be presented with logos.
 
 __Actual result:__ Missed logos in Massachusetts, Pennsylvania, Nevada, Colorado, Oregon, Tennessee, Connecticut, Kansas, Idaho & Vermont states.
+ 
