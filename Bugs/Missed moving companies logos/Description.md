@@ -7,7 +7,7 @@ __Steps to reproduce:__
   3. Choose __Massachusetts__, then find ___"M&M Moving and Storage Company"___.
   4. Choose __Pennsylvania__, then find ___"A & M Friendly Movers Tri State"___.
   5. Choose __Nevada__, then find ___"J&D Moving Company"___.
-  6. Choose __Colorado__, then find ___"Top Moving USA" and "Crosley Family Moving"___.
+  6. Choose __Colorado__, then find ___"Top Moving USA"___ and ___"Crosley Family Moving"___.
   7. Choose __Oregon__, then find ___"Pro Moving and Storage"___.
   8. Choose __Tennessee__, then find ___"Good Time Moving & Storage"___.
   9. Choose __Connecticut__, then find ___"Connecticut"___.
