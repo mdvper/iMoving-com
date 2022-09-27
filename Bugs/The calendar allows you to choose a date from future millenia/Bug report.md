@@ -1,0 +1,18 @@
+# The calendar allows you to choose a date from future millennia
+
+__Steps to reproduce:__
+
+  1. Go to __https://www.imoving.com/__
+  2. Find __"Labor"__ button right in the middle of main page.
+  3. Click on __"Labor"__ button.
+  4. Find __"Enter your zip code"__ field on a down left side.
+  5. Enter data, the choose from proposed existing address or ZIP code.
+  6. Look to the right, them find __"Move Date"__ field.
+  7. Choose __random date__ from 2022 year to 6000 year.
+  8. Look to the right once again, then find __"Get Moving Labor"__ button.
+  9. Click on __"Get Moving Labor"__ button.
+  
+__Expected result:__ Invalid date message.
+
+__Actual result:__ Redirecting to the page www.hireahelper.com.
+ 
