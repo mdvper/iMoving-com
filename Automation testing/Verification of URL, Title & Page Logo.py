@@ -9,16 +9,16 @@ driver.maximize_window()
 # URL verification
 current_url = driver.current_url
 if current_url == "https://www.imoving.com/":
-    print("Currebt URL is OK: ", current_url)
+    print("Current URL is OK: ", current_url)
 
 # Title verification
 imoving_expectedtitle = "iMoving - Compare Moving Companies Prices and Book Online"
 current_title = driver.title
 
 if imoving_expectedtitle == current_title:
-    print ("Current Title is OK: ", imoving_expectedtitle)
+    print("Current Title is OK: ", imoving_expectedtitle)
 else:
-    print ("Current Title is out of scope: ", current_title)
+    print("Current Title is out of scope: ", current_title)
 
 # Page Logo verification
 imoving_logo = driver.find_element(By.XPATH, '//*[@class="navbar-brand"]')
@@ -28,4 +28,4 @@ if imoving_logo:
 else:
     print("iMoving Logo is not presented, or replaced with another one")
 
-driver.quit()
+#driver.quit()
