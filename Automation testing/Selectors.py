@@ -51,7 +51,7 @@ driver.find_element(By.XPATH, "//*[@class = 'searchContainer']").click()
 driver.find_element(By.XPATH, "//*[@class = 'moversSearchResult']").click()
 assert "Find California Movers Near you, book online | iMoving" in driver.title
 if "Find California Movers Near you, book online | iMoving" in driver.title:
-    print("California page title and URL is OK: ", driver.title, ",", driver.current_url)
+    print("California page title and URL are OK: ", driver.title, ",", driver.current_url)
 else:
     print("Invalid title or URL. Must be checked by developer.")
 driver.back()
@@ -67,10 +67,27 @@ driver.find_element(By.XPATH, "//*[@class = 'searchContainer']").click()
 driver.find_element(By.XPATH, "//*[@class = 'moversSearchResult']").click()
 assert "Find Maryland Movers Near you, book online | iMoving" in driver.title
 if "Find Maryland Movers Near you, book online | iMoving" in driver.title:
-    print("Maryland page title and URL is OK: ", driver.title, ",", driver.current_url)
+    print("Maryland page title and URL are OK: ", driver.title, ",", driver.current_url)
 else:
     print("Invalid title or URL. Must be checked by developer.")
-driver.back()
+time.sleep(5)
+
+# Verifying "About US" button
+
+driver.get("https://www.imoving.com/")
+driver.find_element(By.XPATH, "//*[@class = 'state-movers-link hidden-xs']").click()
+AboutUsTitle = 'iMoving - The Future of Moving is Here'
+AboutUsURL = "https://www.imoving.com/about-us/"
+assert AboutUsTitle in driver.title
+assert AboutUsURL in driver.current_url
+if AboutUsTitle in driver.title and AboutUsURL in driver.current_url:
+    print('"About us" title is OK, same as URL: ', driver.title, ",", driver.current_url)
+elif AboutUsURL in driver.title and AboutUsTitle not in driver.current_url:
+    print("Title is OK. URL is invalid")
+elif AboutUsURL not in driver.title and AboutUsTitle in driver.current_url:
+    print("Title is invalid. URL is OK")
+else:
+    print("'About Us' title and URL invalid. Must be checked by developer.")
 
 driver.quit()
 
