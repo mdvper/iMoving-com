@@ -19,7 +19,7 @@ driver.find_element(By.NAME, "btnK").submit()
 
 driver.find_element(By.PARTIAL_LINK_TEXT, "iMoving - Compare Moving Companies Prices and Book Online").click()
 time.sleep(1)
-
+driver.set_page_load_timeout(5)
 assert "https://www.imoving.com/" in driver.current_url
 if driver.current_url == "https://www.imoving.com/":
     print('Current URL is OK: ', driver.current_url)
@@ -70,7 +70,7 @@ if "Find Maryland Movers Near you, book online | iMoving" in driver.title:
     print("Maryland page title and URL are OK: ", driver.title, ",", driver.current_url)
 else:
     print("Invalid title or URL. Must be checked by developer.")
-time.sleep(5)
+time.sleep(1)
 
 # Verifying "About US" button
 
@@ -82,13 +82,37 @@ assert AboutUsTitle in driver.title
 assert AboutUsURL in driver.current_url
 if AboutUsTitle in driver.title and AboutUsURL in driver.current_url:
     print('"About us" title is OK, same as URL: ', driver.title, ",", driver.current_url)
-elif AboutUsURL in driver.title and AboutUsTitle not in driver.current_url:
-    print("Title is OK. URL is invalid")
-elif AboutUsURL not in driver.title and AboutUsTitle in driver.current_url:
-    print("Title is invalid. URL is OK")
+elif AboutUsTitle in driver.title and AboutUsURL not in driver.current_url:
+    print("Title is OK. URL is invalid.")
+elif AboutUsTitle not in driver.title and AboutUsURL in driver.current_url:
+    print("Title is invalid. URL is OK.")
 else:
-    print("'About Us' title and URL invalid. Must be checked by developer.")
+    print("Invalid title and URL. Must be checked by developer.")
+driver.back()
 
+# Verifying "Book now" button
+
+BookNowButton = driver.find_element(By.XPATH, "//*[@class = 'last-call-button']")
+BNhref = BookNowButton.get_attribute('href')
+if BNhref is None:
+   print('"Book Now" button is not clickable.')
+else:
+   print('"Book Now" button is OK.')
+driver.back()
+
+# Verifying "MovingPedia" section
+
+MovingPedia = driver.find_element(By.PARTIAL_LINK_TEXT, "MovingPedia")
+MovingPedia.click()
+iMovingBlogURL = "https://www.imoving.com/blog"
+iMovingBlogTitle = "iMoving Blog"
+assert iMovingBlogURL in driver.current_url and iMovingBlogTitle in driver.title
+if iMovingBlogURL == driver.current_url and iMovingBlogTitle == driver.title:
+    print('"iMoving Blog" URL is OK: ', driver.current_url, 'Title is ok too: ', driver.title)
+elif iMovingBlogURL == driver.current_url and iMovingBlogTitle != driver.title:
+    print('"iMoving Blog" URL is OK: ', driver.current_url, 'but title is invalid: ', driver.title)
+elif iMovingBlogURL != driver.current_url and iMovingBlogTitle == driver.title:
+    print('"iMoving Blog" URL is invalid: ', driver.current_url, ' but title is OK: ', driver.title)
 driver.quit()
 
 
