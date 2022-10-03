@@ -43,7 +43,8 @@ else:
 
 # Validating that "To all our movers" section works correctly. Let's check California as an example
 
-driver.find_element(By.XPATH, "//*[@class = 'to-all-movers-link']").click()
+AllMoversButton = driver.find_element(By.XPATH, "//*[@class = 'to-all-movers-link']")
+AllMoversButton.click()
 Cali = "California"
 driver.find_element(By.XPATH, "//*[@class = 'searchMoverByState']").send_keys(Cali)
 driver.find_element(By.XPATH, "//*[@class = 'searchContainer']").click()
@@ -54,7 +55,22 @@ if "Find California Movers Near you, book online | iMoving" in driver.title:
 else:
     print("Invalid title or URL. Must be checked by developer.")
 driver.back()
-time.sleep(5)
+driver.back()
+
+# Alright then, it works good. But let's check it once again with another state. How about Maryland?
+
+driver.get("https://www.imoving.com/california-movers/")
+driver.refresh()
+Mary = "Maryland"
+driver.find_element(By.XPATH, "//*[@class = 'searchMoverByState']").send_keys(Mary)
+driver.find_element(By.XPATH, "//*[@class = 'searchContainer']").click()
+driver.find_element(By.XPATH, "//*[@class = 'moversSearchResult']").click()
+assert "Find Maryland Movers Near you, book online | iMoving" in driver.title
+if "Find Maryland Movers Near you, book online | iMoving" in driver.title:
+    print("Maryland page title and URL is OK: ", driver.title, ",", driver.current_url)
+else:
+    print("Invalid title or URL. Must be checked by developer.")
+driver.back()
 
 driver.quit()
 
