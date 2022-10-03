@@ -41,3 +41,4 @@ if RecentMovesDescription:
 else:
     print()
 driver.quit()
+
