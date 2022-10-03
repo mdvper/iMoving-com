@@ -128,6 +128,10 @@ print('Unable to locate "#Local Movers" element.')
 #driver.back
 print('Unable to locate "#Moving Tips" element.')
 
+# Verifying "Become a Mover" section
+
+MoverEmail = driver.find_element(By.XPATH, "//*[@id = 'becomeMoverEmailResult']")
+
 
 driver.quit()
 
