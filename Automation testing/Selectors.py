@@ -113,6 +113,22 @@ elif iMovingBlogURL == driver.current_url and iMovingBlogTitle != driver.title:
     print('"iMoving Blog" URL is OK: ', driver.current_url, 'but title is invalid: ', driver.title)
 elif iMovingBlogURL != driver.current_url and iMovingBlogTitle == driver.title:
     print('"iMoving Blog" URL is invalid: ', driver.current_url, ' but title is OK: ', driver.title)
+driver.back()
+
+# Clicking on "MovingPedia" hashtags on main page
+
+driver.find_element(By.PARTIAL_LINK_TEXT, "Long Distance Moving").click()
+driver.back()
+driver.find_element(By.PARTIAL_LINK_TEXT, "Moving Cost").click()
+driver.back()
+#driver.find_element(By.PARTIAL_LINK_TEXT, "#Local Movers")
+#driver.back()
+print('Unable to locate "#Local Movers" element.')
+#driver.find_element(By.PARTIAL_LINK_TEXT, "#Moving Tips")
+#driver.back
+print('Unable to locate "#Moving Tips" element.')
+
+
 driver.quit()
 
 
