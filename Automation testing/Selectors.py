@@ -37,8 +37,26 @@ driver.find_element(By.XPATH, "//*[@class ='get-quite-button']").click()
 
 RecentMovesDescription = driver.find_element(By.XPATH, "//*[@class ='popMap']")
 if RecentMovesDescription:
-    print(driver.get_screenshot_as_file("Recent Moves.png"))
+    print('Recemt moves data is OK ', driver.get_screenshot_as_file("Recent Moves.png"))
 else:
-    print()
+    print("Nor recent moves data")
+
+# Validating that "To all our movers" section works correctly. Let's check California as an example
+
+driver.find_element(By.XPATH, "//*[@class = 'to-all-movers-link']").click()
+Cali = "California"
+driver.find_element(By.XPATH, "//*[@class = 'searchMoverByState']").send_keys(Cali)
+driver.find_element(By.XPATH, "//*[@class = 'searchContainer']").click()
+driver.find_element(By.XPATH, "//*[@class = 'moversSearchResult']").click()
+assert "Find California Movers Near you, book online | iMoving" in driver.title
+if "Find California Movers Near you, book online | iMoving" in driver.title:
+    print("California page title and URL is OK: ", driver.title, ",", driver.current_url)
+else:
+    print("Title or URL invalid. Must be checked by developer.")
+driver.back()
+time.sleep(5)
+
 driver.quit()
+
+
 
