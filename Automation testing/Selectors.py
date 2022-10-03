@@ -52,7 +52,7 @@ assert "Find California Movers Near you, book online | iMoving" in driver.title
 if "Find California Movers Near you, book online | iMoving" in driver.title:
     print("California page title and URL is OK: ", driver.title, ",", driver.current_url)
 else:
-    print("Title or URL invalid. Must be checked by developer.")
+    print("Invalid title or URL. Must be checked by developer.")
 driver.back()
 time.sleep(5)
 
