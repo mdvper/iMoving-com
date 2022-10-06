@@ -41,5 +41,8 @@ class ChromeSearch(unittest.TestCase):
             driver.get_screenshot_as_file("imoving_page_loading_error.png")
             driver.save_screenshot('imoving_page_loading_error.png')
 
+        self.assertIn("iMoving - Compare Moving Companies Prices and Book Online", driver.title)
+        print("Page has", '"',driver.title,'"', "as page title.")
+
     def tearDown(self):
         self.driver.quit()
