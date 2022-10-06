@@ -26,6 +26,20 @@ class ChromeSearch(unittest.TestCase):
         # API testing
         print("Imoving Url has", requests.get(driver.current_url).status_code, "as status Code")
         code = requests.get(driver.current_url).status_code
+        if code == 200:
+            print("API response code is OK")
+        else:
+            print("API response code is not OK. Current code is: ", code)
+
+        delay()
+
+        try:
+            WebDriverWait(driver, 2).until(EC.visibility_of_element_located((By.XPATH, "//*[@class = 'header-img-container']")))
+            print("Home page is ready")
+        except TimeoutException:
+            print("Loading took too much time!")
+            driver.get_screenshot_as_file("imoving_page_loading_error.png")
+            driver.save_screenshot('imoving_page_loading_error.png')
 
     def tearDown(self):
         self.driver.quit()
