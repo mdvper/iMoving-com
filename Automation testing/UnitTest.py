@@ -1,3 +1,5 @@
+# At this test we'll execute test on Chrome, Firefox & Edge.
+# As well we'll verify title, check API response code & wait for visibility of one element of the home page.
 import time
 import requests
 import self as self
