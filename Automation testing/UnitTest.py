@@ -80,3 +80,30 @@ class FirefoxSearch(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+
+class EdgeSearch(unittest.TestCase):
+
+    def setUp(self):
+        self.driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()))
+        self.driver.maximize_window()
+
+    def test_search(self):
+        driver = self.driver
+        driver.get("http://www.imoving.com")
+
+        # driver sleep from 1 to 3 seconds
+        def delay():
+            time.sleep(random.randint(1, 3))
+
+        self.assertIn("iMoving - Compare Moving Companies Prices and Book Online", driver.title)
+        print("Page has", driver.title + " as Page title")
+        # check API response code
+        print("iMoving Url has ", requests.get("https://www.imoving.com").status_code, " as status Code")
+        code = requests.get("https://www.imoving.com").status_code
+        if code == 200:
+            print("API response code is OK")
+        else:
+            print("API response code is not 200")
+
+    def tearDown(self):
+        self.driver.quit()
